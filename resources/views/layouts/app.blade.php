@@ -259,23 +259,22 @@
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
-
       </ul>
     </nav><!-- End Icons Navigation -->
-
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-
+      @role('Driver')
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.html">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      @endrole
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#championship-nav" data-bs-toggle="collapse" href="#">
@@ -294,7 +293,7 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
-
+      @role('FIA Steward')
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#fia-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-map"></i><span>FIA Steward</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -312,7 +311,8 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
-
+      @endrole
+      @role('Admin')
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#admin-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Admin Area</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -330,6 +330,7 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
+      @endrole
       
     </ul>
 
@@ -369,5 +370,4 @@
   <script src="{{asset('NiceAdmin/assets/js/main.js')}}"></script>
 
 </body>
-
 </html>
