@@ -333,6 +333,12 @@
         </ul>
       </li><!-- End Components Nav -->
       @endrole
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('NiceAdmin\\')}}">
+          <span>NiceAdmin</span></i>
+        </a>
+      </li><!-- End Components Nav -->
       
     </ul>
 
