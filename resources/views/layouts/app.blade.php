@@ -276,7 +276,6 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-              <a class="nav-main-link{{ request()->is('pilot/fts/dashboard') ? ' active' : '' }}" href="{{route('pilot.fts.index')}}">
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#championship-nav" data-bs-toggle="collapse" href="#">
