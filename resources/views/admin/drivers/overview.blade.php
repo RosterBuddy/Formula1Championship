@@ -20,7 +20,7 @@
                     @foreach($drivers as $driver)
                         <tr>
                             <td>{{$driver->name}}</td>
-                            <td>{{$driver->team}}</td>                    
+                            <td>{{$driver->teams->name}}</td>                    
                             <td>{{$driver->real_checker()}}</td>
                         </tr>
                     @endforeach

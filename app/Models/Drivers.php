@@ -13,6 +13,11 @@ class Drivers extends Model
 
     protected $fillable = [ 'name', 'team', 'user_id'];
 
+    public function teams()
+    {
+        return $this->hasOne(Team::class, 'id', 'team');
+    }
+
     public function real_checker()
     {
         if($this->user_id == 1){
