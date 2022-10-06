@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Race;
 use App\Models\Drivers;
+use App\Models\Team;
 
 use Auth;
 
@@ -44,5 +45,25 @@ class AdminController extends Controller
     {
         $drivers = Drivers::orderBy('team', 'asc')->get();
         return view('admin.drivers.overview', compact('drivers'));
+    }
+
+    public function drivers_create()
+    {
+        $teams = Team::all();
+        $users = User::all();
+
+        return view('admin.drivers.create', compact('teams', 'users'));
+    }
+
+    public function drivers_store(Request $request)
+    {
+        Drivers::create([            
+            'name' => $request->name,
+            'team' => $request->team,
+            'user_id' => $request->user_id,
+        ]);
+        notify()->success('Welcome to Laravel Notify ⚡️');
+        return redirect(route('admin.drivers_overview'));
+
     }
 }
