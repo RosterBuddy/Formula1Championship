@@ -26,6 +26,7 @@
   <link href="{{asset('NiceAdmin/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
   <link href="{{asset('NiceAdmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('NiceAdmin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+  @notifyCss
 
   <!-- Template Main CSS File -->
   <link href="{{asset('NiceAdmin/assets/css/style.css')}}" rel="stylesheet">
@@ -261,6 +262,7 @@
         </li><!-- End Profile Nav -->
       </ul>
     </nav><!-- End Icons Navigation -->
+    <x:notify-messages />
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
@@ -356,6 +358,7 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  @notifyJs
   <!-- Vendor JS Files -->
   <script src="{{asset('NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{asset('NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
