@@ -9,6 +9,7 @@ use App\Models\Drivers;
 use App\Models\Team;
 use App\Models\Results;
 
+Use Carbon\Carbon;
 use Auth;
 
 class AdminController extends Controller
@@ -32,8 +33,8 @@ class AdminController extends Controller
             'user_id' => Auth::id(),
             'active' => 0,
         ]);
-        notify()->success('Welcome to Laravel Notify ⚡️');
-        return redirect(route('admin.race.race_create'));
+        notify()->success('The race ' . $request->track . ' has been saved for ' . Carbon::parse($request->start_time)->format('H:i d/m/Y'));
+        return redirect(route('admin.race_create'));
     }
 
     public function race_show($id)
@@ -64,7 +65,7 @@ class AdminController extends Controller
             'fastest_lap' => $checked,
         ]);
 
-        notify()->success('Welcome to Laravel Notify ⚡️');
+        notify()->success('Result Sucessfully Saved');
         return redirect(route('admin.race_results', $request->race_id));
     }
 
@@ -89,7 +90,7 @@ class AdminController extends Controller
             'team' => $request->team,
             'user_id' => $request->user_id,
         ]);
-        notify()->success('Welcome to Laravel Notify ⚡️');
+        notify()->success($request->name . ' has been sucessfully added');
         return redirect(route('admin.drivers_overview'));
 
     }
