@@ -321,13 +321,18 @@
         </a>
         <ul id="admin-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{route('admin.manage_races')}}">
+            <a href="{{route('admin.race_overview')}}">
               <i class="bi bi-circle"></i><span>Manage Races</span>
             </a>
           </li>
           <li>
+            <a href="{{route('admin.drivers_overview')}}">
+              <i class="bi bi-circle"></i><span>Drivers</span>
+            </a>
+          </li>
+          <li>
             <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
+              <i class="bi bi-circle"></i><span>Manage Users</span>
             </a>
           </li>
         </ul>

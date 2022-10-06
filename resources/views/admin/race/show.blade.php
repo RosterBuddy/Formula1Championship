@@ -21,7 +21,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">{{$race->id}}</th>
-                        <td><a href="{{route('admin.show_race', $race->id)}}"><b>{{$race->name}}</b></td>
+                        <td>{{$race->name}}</td>
                         <td>{{$race->start}}</td>                    
                         <td><span class="btn btn-{{$race->race_status_color()}}">{{$race->race_status()}}</span></td>
                         <td>{{$race->user->name}}</td>

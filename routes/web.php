@@ -26,10 +26,10 @@ Route::group([
     'prefix' => 'admin',
     'middleware' => ['auth']
 ], function() {
-    Route::get('race/manage', [App\Http\Controllers\AdminController::class, 'manage_races'])->name('manage_races');
-    Route::get('race/create', [App\Http\Controllers\AdminController::class, 'create_race'])->name('create_race');
-    Route::post('race/store', [App\Http\Controllers\AdminController::class, 'store_race'])->name('store_race');
-    Route::get('race/show/{id}', [App\Http\Controllers\AdminController::class, 'show_race'])->name('show_race');
+    Route::get('race/manage', [App\Http\Controllers\AdminController::class, 'race_overview'])->name('race_overview');
+    Route::get('race/create', [App\Http\Controllers\AdminController::class, 'race_create'])->name('race_create');
+    Route::post('race/store', [App\Http\Controllers\AdminController::class, 'race_store'])->name('race_store');
+    Route::get('race/show/{id}', [App\Http\Controllers\AdminController::class, 'race_show'])->name('race_show');
 
     ////Drivers
     Route::get('drivers', [App\Http\Controllers\AdminController::class, 'drivers_overview'])->name('drivers_overview');

@@ -11,18 +11,18 @@ use Auth;
 
 class AdminController extends Controller
 {
-    public function manage_races()
+    public function race_overview()
     {
         $races = Race::orderBy('id', 'desc')->get();
-        return view('admin.race.view_races', compact('races'));
+        return view('admin.race.overview', compact('races'));
     }
 
-    public function create_race()
+    public function race_create()
     {
-        return view('admin.race.create_race');
+        return view('admin.race.create');
     }
 
-    public function store_race(Request $request)
+    public function race_store(Request $request)
     {
         Race::create([            
             'name' => $request->track,
@@ -31,13 +31,13 @@ class AdminController extends Controller
             'active' => 0,
         ]);
         notify()->success('Welcome to Laravel Notify ⚡️');
-        return redirect(route('admin.race.create_race'));
+        return redirect(route('admin.race.race_create'));
     }
 
-    public function show_race($id)
+    public function race_show($id)
     {
         $race = Race::find($id);
-        return view('admin.race.show_race', compact('race'));
+        return view('admin.race.show', compact('race'));
     }
 
     public function drivers_overview()
