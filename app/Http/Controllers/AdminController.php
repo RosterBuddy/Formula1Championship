@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Race;
+use App\Models\Drivers;
+
 use Auth;
 
 class AdminController extends Controller
@@ -36,5 +38,11 @@ class AdminController extends Controller
     {
         $race = Race::find($id);
         return view('admin.race.show_race', compact('race'));
+    }
+
+    public function drivers_overview()
+    {
+        $drivers = Drivers::all();
+        return view('admin.drivers.overview', compact('drivers'));
     }
 }
