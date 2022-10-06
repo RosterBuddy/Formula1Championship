@@ -12,4 +12,24 @@ class Race extends Model
     protected $table = 'races';
 
     protected $fillable = [ 'name', 'start', 'user_id', 'active' ];
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function race_status_color()
+    {
+        switch($this->attributes['active']) {
+            case '0': return 'danger';
+            case '1': return 'success';
+        }
+    }
+
+    public function race_status()
+    {
+        switch($this->attributes['active']) {
+            case '0': return 'Inactive';
+            case '1': return 'Active';
+        }
+    }
 }

@@ -321,10 +321,10 @@
         </a>
         <ul id="admin-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Create Race</span>
+            <a href="{{route('admin.manage_races')}}">
+              <i class="bi bi-circle"></i><span>Manage Races</span>
             </a>
-          </li>          
+          </li>
           <li>
             <a href="components-tooltips.html">
               <i class="bi bi-circle"></i><span>Tooltips</span>

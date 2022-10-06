@@ -26,6 +26,8 @@ Route::group([
     'prefix' => 'admin',
     'middleware' => ['auth']
 ], function() {
+    Route::get('race/manage', [App\Http\Controllers\AdminController::class, 'manage_races'])->name('manage_races');
     Route::get('race/create', [App\Http\Controllers\AdminController::class, 'create_race'])->name('create_race');
     Route::post('race/store', [App\Http\Controllers\AdminController::class, 'store_race'])->name('store_race');
+    Route::get('race/show/{id}', [App\Http\Controllers\AdminController::class, 'show_race'])->name('show_race');
 });
