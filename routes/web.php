@@ -31,6 +31,10 @@ Route::group([
     Route::post('race/store', [App\Http\Controllers\AdminController::class, 'race_store'])->name('race_store');
     Route::get('race/show/{id}', [App\Http\Controllers\AdminController::class, 'race_show'])->name('race_show');
 
+    //Race Results
+    Route::get('race/results/{id}', [App\Http\Controllers\AdminController::class, 'race_results'])->name('race_results');
+    Route::post('race/results/{id}/insert', [App\Http\Controllers\AdminController::class, 'insert_race_results'])->name('insert_race_results');
+
     ////Drivers
     Route::get('drivers', [App\Http\Controllers\AdminController::class, 'drivers_overview'])->name('drivers_overview');
     Route::get('drivers/create', [App\Http\Controllers\AdminController::class, 'drivers_create'])->name('drivers_create');

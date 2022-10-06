@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Race;
 use App\Models\Drivers;
 use App\Models\Team;
+use App\Models\Results;
 
 use Auth;
 
@@ -39,6 +40,32 @@ class AdminController extends Controller
     {
         $race = Race::find($id);
         return view('admin.race.show', compact('race'));
+    }
+
+    public function race_results($id)
+    {
+        $race = Race::find($id);
+        $drivers = Drivers::orderBy('team', 'asc')->get();
+        $results = Results::where('race_id', $id)->get();
+        return view('admin.race.results.overview', compact('race', 'drivers', 'results'));
+    }
+
+    public function insert_race_results(Request $request)
+    {
+        $checked = 0;
+        
+        if (isset($request->fastest_lap)) {
+            $checked = 1;
+        }
+        $result = Results::create([
+            'race_id' => $request->race_id,
+            'driver_id' => $request->driver,
+            'position' => $request->position,
+            'fastest_lap' => $checked,
+        ]);
+
+        notify()->success('Welcome to Laravel Notify ⚡️');
+        return redirect(route('admin.race_results', $request->race_id));
     }
 
     public function drivers_overview()
