@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+Route::group([
+    'as' => 'admin.',
+    'prefix' => 'admin',
+    'middleware' => ['auth']
+], function() {
+    Route::get('race/create', [App\Http\Controllers\AdminController::class, 'create_race'])->name('create_race');
+    Route::post('race/store', [App\Http\Controllers\AdminController::class, 'store_race'])->name('store_race');
+});
