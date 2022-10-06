@@ -33,4 +33,8 @@ Route::group([
 
     ////Drivers
     Route::get('drivers', [App\Http\Controllers\AdminController::class, 'drivers_overview'])->name('drivers_overview');
+    Route::get('drivers/create', [App\Http\Controllers\AdminController::class, 'drivers_create'])->name('drivers_create');
+    Route::post('drivers/create/store', [App\Http\Controllers\AdminController::class, 'drivers_store'])->name('drivers_store');
+    Route::get('drivers/show/{id}', [App\Http\Controllers\AdminController::class, 'drivers_show'])->name('drivers_show');
+    Route::post('drivers/update/{id}', [App\Http\Controllers\AdminController::class, 'drivers_update'])->name('drivers_update');
 });
