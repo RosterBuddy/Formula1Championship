@@ -42,7 +42,7 @@ class AdminController extends Controller
 
     public function drivers_overview()
     {
-        $drivers = Drivers::all();
+        $drivers = Drivers::orderBy('team', 'asc')->get();
         return view('admin.drivers.overview', compact('drivers'));
     }
 }
