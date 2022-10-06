@@ -5,6 +5,7 @@
             <h5 class="card-title">
                 <div class="row">
                     <div class="col">Manage Races</div>
+                    <div class="col text-right"><a class="btn btn-primary" href="{{route('admin.race_results', $race->id)}}">Update Results</a></div>
             </div>
             </h5>
             <table class="text-center table table-hover">
