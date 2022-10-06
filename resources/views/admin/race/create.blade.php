@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">Create a race</h5>
       <!-- Vertical Form -->
-      <form method="post" action="{{route('admin.store_race')}}" class="row g-3">
+      <form method="post" action="{{route('admin.race_store')}}" class="row g-3">
         @csrf
         <div class="col-12">
           <label for="track" class="form-label">Track Name</label>
