@@ -11,24 +11,24 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Favicons -->
-  <link href="NiceAdmin/assets/img/favicon.png" rel="icon">
-  <link href="NiceAdmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('NiceAdmin/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('NiceAdmin/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="NiceAdmin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="NiceAdmin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="NiceAdmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="NiceAdmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="NiceAdmin/assets/css/style.css" rel="stylesheet">
+  <link href="{{asset('NiceAdmin/assets/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.0
@@ -45,7 +45,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="NiceAdmin/assets/img/logo.png" alt="">
+        <img src="{{asset('NiceAdmin/assets/img/logo.png')}}" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -153,7 +153,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="NiceAdmin/assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <img src="{{asset('NiceAdmin/assets/img/messages-1.jpg')}}" alt="" class="rounded-circle">
                 <div>
                   <h4>Maria Hudson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -167,7 +167,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="NiceAdmin/assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                <img src="{{asset('NiceAdmin/assets/img/messages-2.jpg')}}" alt="" class="rounded-circle">
                 <div>
                   <h4>Anna Nelson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -181,7 +181,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="NiceAdmin/assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                <img src="{{asset('NiceAdmin/assets/img/messages-3.jpg')}}" alt="" class="rounded-circle">
                 <div>
                   <h4>David Muldon</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -204,7 +204,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="NiceAdmin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="{{asset('NiceAdmin/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"></span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -276,6 +276,7 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+              <a class="nav-main-link{{ request()->is('pilot/fts/dashboard') ? ' active' : '' }}" href="{{route('pilot.fts.index')}}">
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#championship-nav" data-bs-toggle="collapse" href="#">
@@ -299,7 +300,7 @@
         <a class="nav-link collapsed" data-bs-target="#fia-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-map"></i><span>FIA Steward</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="fia-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="components-alerts.html">
               <i class="bi bi-circle"></i><span>Report an incident</span>
@@ -317,10 +318,10 @@
         <a class="nav-link collapsed" data-bs-target="#admin-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Admin Area</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="admin-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
+              <i class="bi bi-circle"></i><span>Create Race</span>
             </a>
           </li>          
           <li>
@@ -356,17 +357,17 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="NiceAdmin/assets/vendor/chart.js/chart.min.js"></script>
-  <script src="NiceAdmin/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="NiceAdmin/assets/vendor/quill/quill.min.js"></script>
-  <script src="NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/chart.js/chart.min.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/echarts/echarts.min.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/quill/quill.min.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/tinymce/tinymce.min.js')}}"></script>
+  <script src="{{asset('NiceAdmin/assets/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="NiceAdmin/assets/js/main.js"></script>
+  <script src="{{asset('NiceAdmin/assets/js/main.js')}}"></script>
 
 </body>
 
