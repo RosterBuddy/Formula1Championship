@@ -22,6 +22,7 @@ class Race extends Model
         switch($this->attributes['active']) {
             case '0': return 'danger';
             case '1': return 'success';
+            case '2': return 'info';
         }
     }
 
@@ -30,6 +31,7 @@ class Race extends Model
         switch($this->attributes['active']) {
             case '0': return 'Inactive';
             case '1': return 'Active';
+            case '2': return 'Completed';
         }
     }
 }
