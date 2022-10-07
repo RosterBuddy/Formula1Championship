@@ -47,7 +47,7 @@ class AdminController extends Controller
     {
         $race = Race::find($id);
         $drivers = Drivers::orderBy('team', 'asc')->get();
-        $results = Results::where('race_id', $id)->get();
+        $results = Results::where('race_id', $id)->orderBy('position', 'asc')->get();
         return view('admin.race.results.overview', compact('race', 'drivers', 'results'));
     }
 
