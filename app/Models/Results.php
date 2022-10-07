@@ -12,4 +12,22 @@ class Results extends Model
     protected $table = 'race_results';
 
     protected $fillable = [ 'race_id', 'driver_id', 'position', 'fastest_lap', 'points' ];
+
+    public function driver()
+    {
+        return $this->hasOne(Drivers::class, 'id', 'driver_id');
+    }
+
+    public function fastest_lap_check()
+    {
+        if($this->fastest_lap == 1){
+            if($this->position <= 10 && $this->position != "DNS" && $this->position != "DNF" && $this->position != "DQ"){
+                return "True";
+            }else{
+                return "True (Outside Top 10)";
+            }
+        }else{
+            return "False";
+        }
+    }
 }
