@@ -29,8 +29,8 @@
                     <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P5</h6>
-                    {{-- <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                    <h6>P{{$driverposition[0]->Row}}</h6>
+                    <span class="small pt-1 fw-bold">{{$driverposition[0]->points}}</span> <span class="text-muted small pt-2 ps-1">points</span>
                   </div>
                 </div>
               </div>
@@ -49,8 +49,8 @@
                     <i class="bi bi-currency-dollar"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P3</h6>
-                    {{-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                    <h6>P{{$teamposition[0]->Row}}</h6>
+                    <span class="small pt-1 fw-bold">{{$teamposition[0]->points}}</span> <span class="text-muted small pt-2 ps-1">points</span>
                   </div>
                 </div>
               </div>
@@ -70,7 +70,7 @@
                     <i class="bi bi-people"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P15</h6>
+                    <h6>P{{$avg}}</h6>
                     {{-- <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span> --}}
                   </div>
                 </div>
@@ -90,134 +90,30 @@
                     <tr>
                       <th scope="col">Position</th>
                       <th scope="col">Driver</th>
-                      <th scope="col">Team</th>                  
+                      <th scope="col">Team</th>
+                      <th scope="col">Points</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row"><a href="#">P1</a></th>
-                      <td>Ciaran Breen</td>
-                      <td><a href="#" class="text-primary">McLaren</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P2</a></th>
-                      <td>Adam McDort</td>
-                      <td><a href="#" class="text-primary">Williams</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P3</a></th>
-                      <td>Prill</td>
-                      <td><a href="#" class="text-primary">Ferrari</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P4</a></th>
-                      <td>Christian Horner</td>
-                      <td><a href="#" class="text-primar">Redbull</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P5</a></th>
-                      <td>Luke Murray</td>
-                      <td><a href="#" class="text-primary">Haas</a></td>
-                    </tr>
+                    @php
+                        $count = 0;
+                    @endphp
+                    @foreach($drivers as $driver)
+                    @php
+                        $count++
+                    @endphp
+                        <tr>
+                            <th scope="row">{{$count}}</th>
+                            <td>{{$driver->drivers->name}}</td>
+                            <td>{{$driver->drivers->teams->name}}</td>
+                            <td>{{$driver->points}}</td>
+                        </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
             </div>
           </div><!-- End Driver Standings -->
-
-          {{-- <!-- Team Standings -->
-          <div class="col-12">
-            <div class="card recent-sales overflow-auto">
-              <div class="card-body">
-                <h5 class="card-title">Team Standings <span></span></h5>
-                <table class="table table-borderless datatable">
-                  <thead>
-                    <tr>
-                      <th scope="col">Position</th>
-                      <th scope="col">Team</th>         
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row"><a href="#">P1</a></th>                      
-                      <td><a href="#" class="text-primary">McLaren</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P2</a></th>
-                      <td><a href="#" class="text-primary">Williams</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P3</a></th>
-                      <td><a href="#" class="text-primary">Ferrari</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P4</a></th>
-                      <td><a href="#" class="text-primar">Redbull</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">P5</a></th>
-                      <td><a href="#" class="text-primary">Haas</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div><!-- End Team Standings --> --}}
-
-          <!-- Reports -->
-          <div class="col-12">
-            <div class="card">
-
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Recent Performance <span></span></h5>
-
-                <!-- Line Chart -->
-              <canvas id="lineChart" style="max-height: 400px;"></canvas>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#lineChart'), {
-                    type: 'line',
-                    data: {
-                      labels: ['Bahrain', 'Saudi Arabia	', 'Australia', 'April', 'Italy', 'Miami'],
-                      datasets: [{
-                        label: 'Points per event',
-                        data: [25, 6, 1, 26, 10, 8],
-                        fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                      }]
-                    },
-                    options: {
-                      scales: {
-                        y: {
-                          beginAtZero: true
-                        }
-                      }
-                    }
-                  });
-                });
-              </script>
-              <!-- End Line CHart -->
-                <!-- End Line Chart -->
-
-              </div>
-
-            </div>
-          </div><!-- End Reports -->
-
         </div>
       </div><!-- End Left side columns -->
 
@@ -298,31 +194,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">P1</th>
-                  <td>McLaren</td>
-                  <td>26</td>
-                </tr>
-                <tr>
-                  <th scope="row">P2</th>
-                  <td>Ferrari</td>
-                  <td>26</td>
-                </tr>
-                <tr>
-                  <th scope="row">P3</th>
-                  <td>RedBull</td>
-                  <td>26</td>
-                </tr>
-                <tr>
-                  <th scope="row">P4</th>
-                  <td>Williams</td>
-                  <td>26</td>
-                </tr>
-                <tr>
-                  <th scope="row">P5</th>
-                  <td>Haas</td>
-                  <td>26</td>
-                </tr>
+              @php
+                  $count = 0;
+              @endphp
+              @foreach($teams as $team)
+                @php
+                  $count++
+                @endphp
+                  <tr>
+                    <th scope="row">{{$count}}</th>
+                    <td>{{$team->teams->name}}</td>
+                    <td>{{$team->points}}</td>
+                  </tr>
+                @endforeach
               </tbody>
             </table>
 
