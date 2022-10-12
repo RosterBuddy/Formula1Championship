@@ -50,7 +50,7 @@
           <tbody>
             @foreach($results as $result)
             <tr>
-              <th scope="row">{{$result->position}}</th>
+              <th scope="row">{{$result->positions()}}</th>
               <td>{{$result->driver->name}}</td>
               <td>{{$result->driver->teams->name}}</td>
               <td>{{$result->points}}</td>

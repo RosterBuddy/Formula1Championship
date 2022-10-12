@@ -30,4 +30,17 @@ class Results extends Model
             return "False";
         }
     }
+
+    public function positions()
+    {
+        if($this->position == 97){
+            return "DNF";
+        }elseif($this->position == 98){
+            return "DNS";
+        }elseif($this->position == 99){
+            return "DQ";
+        }else{
+            return $this->position;
+        }
+    }
 }
