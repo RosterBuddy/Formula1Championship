@@ -26,4 +26,29 @@ class Reports extends Model
     {
         return $this->hasOne(Race::class, 'id', 'race_id');
     }
+
+    // 1 Opened
+    // 2 Pending Review
+    // 3 Open for Appeal
+    // 4 Closed
+
+    public function status_color()
+    {
+        switch($this->attributes['status']) {
+            case '1': return 'info';
+            case '2': return 'secondary';
+            case '3': return 'warning';
+            case '4': return 'success';
+        }
+    }
+
+    public function status_text()
+    {
+        switch($this->attributes['status']) {
+            case '1': return 'Opened';
+            case '2': return 'Pending Review';
+            case '3': return 'Open For Appeal';
+            case '4': return 'Closed';
+        }
+    }
 }
