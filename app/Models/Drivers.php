@@ -20,7 +20,7 @@ class Drivers extends Model
 
     public function real_checker()
     {
-        if($this->user_id == 1){
+        if($this->user_id != 0){
             return "Real";
         }else{
             return "AI";
