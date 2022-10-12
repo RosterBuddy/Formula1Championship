@@ -12,4 +12,8 @@ class DriverStandings extends Model
     protected $table = 'driver_standings';
 
     protected $fillable = [ 'driver_id', 'points'];
+
+    public function drivers() {
+        return $this->hasOne(Drivers::class, 'id', 'driver_id');
+    }
 }
