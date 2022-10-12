@@ -64,7 +64,7 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>{{Auth::user()->name}}</h6>
-              <span>McLaren F1</span>
+              <span>{{Auth::user()->driver->teams->name}}</span>
             </li>
             {{-- <li>
               <hr class="dropdown-divider">
