@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('race_id');
             $table->integer('driver_id');
+            $table->integer('team_id');
             $table->integer('position');
             $table->tinyInteger('fastest_lap');
             $table->integer('points');

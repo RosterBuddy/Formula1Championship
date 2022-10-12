@@ -73,9 +73,12 @@ class AdminController extends Controller
 
         if($request->position <= 10 && $checked == 1) $points++;
 
+        $driver = Drivers::where('id', $request->driver)->get();
+
         $result = Results::create([
             'race_id' => $request->race_id,
             'driver_id' => $request->driver,
+            'team_id' => $driver[0]->team,
             'position' => $request->position,
             'fastest_lap' => $checked,
             'points' => $points,
