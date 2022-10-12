@@ -73,7 +73,7 @@ class RegisterController extends Controller
 
         Drivers::create([
             'name' => $data['name'],
-            'team' => '12',
+            'team' => '11',
             'user_id' => $user->id,
         ]);
 
