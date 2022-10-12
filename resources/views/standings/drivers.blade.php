@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Driver Championship</h5>
+      <h5 class="card-title">Driver Championship Standings</h5>
       <table class="table table-striped">
         <thead>
           <tr>
