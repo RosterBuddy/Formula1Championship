@@ -127,9 +127,7 @@
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
-      @endrole
-
+      </li><!-- End Dashboard Nav -->      
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#championship-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-list-ol"></i><span>Championship</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -147,20 +145,25 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
-      @role('FIA Steward')
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#fia-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-map"></i><span>FIA Steward</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="fia-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="{{route('fia.report_overview')}}">
               <i class="bi bi-circle"></i><span>Report an incident</span>
             </a>
-          </li>          
+          </li>
+          @endrole
+          @role('FIA Steward')
           <li>
             <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
+              <i class="bi bi-circle"></i><span>Filed Reports</span>
+            </a>
+
+            <a href="components-tooltips.html">
+              <i class="bi bi-circle"></i><span>Penalty Points</span>
             </a>
           </li>
         </ul>
