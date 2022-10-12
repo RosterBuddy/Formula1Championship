@@ -120,7 +120,7 @@
       <!-- Right side columns -->
       <div class="col-lg-4">
 
-        <!-- Latest News -->
+        {{-- <!-- Latest News -->
         <div class="card">
 
           <div class="card-body">
@@ -179,7 +179,7 @@
             </div>
 
           </div>
-        </div><!-- End Latest News -->
+        </div><!-- End Latest News --> --}}
 
         <!-- Team Standings -->
         <div class="card">
