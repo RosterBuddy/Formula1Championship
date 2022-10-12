@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('team');
+            $table->integer('team');
             $table->integer('user_id')->nullable();
             $table->timestamps();
         });
