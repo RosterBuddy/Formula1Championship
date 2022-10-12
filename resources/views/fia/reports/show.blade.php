@@ -7,25 +7,25 @@
         <div class="row mb-3">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Reporter</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputText" value="{{$report->reporter->name}}">
+            <input type="text" class="form-control" id="inputText" value="{{$report->reporter->name}}" disabled>
           </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Reportee</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputText" value="{{$report->reportee->name}}">
+              <input type="text" class="form-control" id="inputText" value="{{$report->reportee->name}}" disabled>
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputPassword" class="col-sm-2 col-form-label">Textarea</label>
             <div class="col-sm-10">
-              <textarea class="form-control" style="height: 200px">{{$report->description}}</textarea>
+              <textarea class="form-control" style="height: 200px" disabled>{{$report->description}}</textarea>
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Reference</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputText" value="{{$report->reference}}">
+              <input type="text" class="form-control" id="inputText" value="{{$report->reference}}" disabled>
             </div>
         </div>
     </div>
