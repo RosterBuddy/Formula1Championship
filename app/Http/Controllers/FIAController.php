@@ -36,4 +36,10 @@ class FIAController extends Controller
         notify()->success('Report Created');
         return redirect(route('fia.report_overview'));
     }
+
+    public function report_show($id)
+    {
+        $report = Reports::find($id);
+        return view('fia.reports.show', compact('report'));
+    }
 }
