@@ -21,6 +21,9 @@ Auth::routes();
 
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('standings/drivers', [App\Http\Controllers\StandingsController::class, 'driver_standings'])->name('driver_standings');
+Route::get('standings/teams', [App\Http\Controllers\StandingsController::class, 'team_standings'])->name('team_standings');
+
 Route::group([
     'as' => 'admin.',
     'prefix' => 'admin',
