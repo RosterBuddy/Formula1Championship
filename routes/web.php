@@ -45,3 +45,14 @@ Route::group([
     Route::get('drivers/show/{id}', [App\Http\Controllers\AdminController::class, 'drivers_show'])->name('drivers_show');
     Route::post('drivers/update/{id}', [App\Http\Controllers\AdminController::class, 'drivers_update'])->name('drivers_update');
 });
+
+Route::group([
+    'as' => 'fia.',
+    'prefix' => 'fia',
+    'middleware' => ['auth']
+], function() {
+    Route::get('report', [App\Http\Controllers\FIAController::class, 'report_overview'])->name('report_overview');
+    Route::get('report/create', [App\Http\Controllers\FIAController::class, 'report_create'])->name('report_create');
+    Route::post('report/store', [App\Http\Controllers\FIAController::class, 'report_store'])->name('report_store');
+    Route::get('report/show/{id}', [App\Http\Controllers\FIAController::class, 'report_show'])->name('report_show');
+});
