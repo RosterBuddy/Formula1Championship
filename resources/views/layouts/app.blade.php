@@ -136,12 +136,12 @@
         </a>
         <ul id="championship-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="{{route('driver_standings')}}">
               <i class="bi bi-circle"></i><span>Full Driver Standings</span>
             </a>
           </li>          
           <li>
-            <a href="components-tooltips.html">
+            <a href="{{route('team_standings')}}">
               <i class="bi bi-circle"></i><span>Full Team Standings</span>
             </a>
           </li>
