@@ -29,8 +29,8 @@
                     <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P{{$driverposition[0]->Row}}</h6>
-                    <span class="small pt-1 fw-bold">{{$driverposition[0]->points}}</span> <span class="text-muted small pt-2 ps-1">points</span>
+                    <h6>P{{$driverposition[0]->Row ?? '0'}}</h6>
+                    <span class="small pt-1 fw-bold">{{$driverposition[0]->points ?? '0'}}</span> <span class="text-muted small pt-2 ps-1">points</span>
                   </div>
                 </div>
               </div>
@@ -49,8 +49,8 @@
                     <i class="bi bi-currency-dollar"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P{{$teamposition[0]->Row}}</h6>
-                    <span class="small pt-1 fw-bold">{{$teamposition[0]->points}}</span> <span class="text-muted small pt-2 ps-1">points</span>
+                    <h6>P{{$teamposition[0]->Row ?? '0'}}</h6>
+                    <span class="small pt-1 fw-bold">{{$teamposition[0]->points ?? '0'}}</span> <span class="text-muted small pt-2 ps-1">points</span>
                   </div>
                 </div>
               </div>
@@ -70,7 +70,7 @@
                     <i class="bi bi-people"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P{{$avg}}</h6>
+                    <h6>P{{$avg ?? '0'}}</h6>
                     {{-- <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span> --}}
                   </div>
                 </div>
