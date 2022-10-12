@@ -26,7 +26,7 @@
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-cart"></i>
+                    <i class="bx bxs-medal"></i>
                   </div>
                   <div class="ps-3">
                     <h6>P{{$driverposition[0]->Row ?? '0'}}</h6>
@@ -46,7 +46,7 @@
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="ri-team-fill"></i>
                   </div>
                   <div class="ps-3">
                     <h6>P{{$teamposition[0]->Row ?? '0'}}</h6>
@@ -67,7 +67,7 @@
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-people"></i>
+                    <i class="ri-bar-chart-fill"></i>
                   </div>
                   <div class="ps-3">
                     <h6>P{{$avg ?? '0'}}</h6>
