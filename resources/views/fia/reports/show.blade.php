@@ -2,7 +2,12 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Report ID {{$report->id}} from {{$report->race->name}}</h5>
+        <h5 class="card-title">
+            <div class="row">
+                <div class="col">Report ID {{$report->id}} from {{$report->race->name}}</div>
+                <div class="col text-right"><span style="color:white;" class="btn btn-{{$report->status_color()}}">{{$report->status_text()}}</span></div>
+            </div>
+        </h5>
 
         <div class="row mb-3">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Reporter</label>
