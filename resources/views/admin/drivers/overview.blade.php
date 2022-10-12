@@ -19,7 +19,7 @@
                 <tbody>
                     @foreach($drivers as $driver)
                         <tr>
-                            <td>{{$driver->name}}</td>
+                            <td><a href="{{route('admin.drivers_show', $driver->id)}}">{{$driver->name}}</td>
                             <td>{{$driver->teams->name}}</td>                    
                             <td>{{$driver->real_checker()}}</td>
                         </tr>

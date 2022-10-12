@@ -111,6 +111,22 @@ class AdminController extends Controller
         ]);
         notify()->success($request->name . ' has been sucessfully added');
         return redirect(route('admin.drivers_overview'));
+    }
 
+    public function drivers_show($id)
+    {
+        $driver = Drivers::find($id);
+        $teams = Team::all();
+
+        return view('admin.drivers.show', compact('driver', 'teams'));
+    }
+
+    public function drivers_update(Request $request)
+    {
+        $driver = Drivers::find($request->driver);
+        $driver->team = $request->team;
+        $driver->save();
+        
+        return redirect(route('admin.drivers_overview'));
     }
 }
