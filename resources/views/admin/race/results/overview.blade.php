@@ -76,7 +76,9 @@
                 <div class="col-sm-10">
                   <select class="form-select" name="driver" id="driver">
                     @foreach($drivers as $driver)
-                      <option value="{{$driver->id}}">{{$driver->name}} ({{$driver->teams->name}})</option>
+                      @if($driver->teams->name != "Not Set")
+                        <option value="{{$driver->id}}">{{$driver->name}} ({{$driver->teams->name}})</option>
+                      @endif
                     @endforeach                    
                   </select>
                 </div>
