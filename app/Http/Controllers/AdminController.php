@@ -40,7 +40,8 @@ class AdminController extends Controller
     public function race_show($id)
     {
         $race = Race::find($id);
-        return view('admin.race.show', compact('race'));
+        $results = Results::where('race_id', $id)->orderBy('position', 'asc')->get();
+        return view('admin.race.show', compact('race', 'results'));
     }
 
     public function race_results($id)

@@ -34,53 +34,32 @@
     </div>
 
     <div class="text-center card">
-        <div class="card-body">
-          <h5 class="card-title">Race Results</h5>
-          <!-- Race Results -->
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Team</th>
-                <th scope="col">Points</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Ciaran Breen</td>
-                <td>McLaren</td>
-                <td>26</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Lando Norris</td>
-                <td>McLaren</td>
-                <td>20</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Max Verstappen</td>
-                <td>Red Bull</td>
-                <td>15</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>David Ward</td>
-                <td>Mercedes</td>
-                <td>12</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Davin Crawford</td>
-                <td>Mercedes</td>
-                <td>10</td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- End Race Results -->
-
-        </div>
+      <div class="card-body">
+        <h5 class="card-title">Race Results</h5>
+        <!-- Race Results -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Team</th>
+              <th scope="col">Points</th>
+              <th scope="col">Fastest Lap</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($results as $result)
+            <tr>
+              <th scope="row">{{$result->position}}</th>
+              <td>{{$result->driver->name}}</td>
+              <td>{{$result->driver->teams->name}}</td>
+              <td>{{$result->points}}</td>
+              <td>{{$result->fastest_lap_check()}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+        <!-- End Race Results -->
       </div>
+    </div>
 @endsection
