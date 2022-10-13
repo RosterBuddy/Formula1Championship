@@ -152,14 +152,14 @@
         <ul id="fia-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{route('fia.report_overview')}}">
-              <i class="bi bi-circle"></i><span>Report an incident</span>
+              <i class="bi bi-circle"></i><span>My Reports</span>
             </a>
           </li>
           @endrole
           @role('FIA Steward')
           <li>
             <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Filed Reports</span>
+              <i class="bi bi-circle"></i><span>Driver Reports</span>
             </a>
 
             <a href="components-tooltips.html">
