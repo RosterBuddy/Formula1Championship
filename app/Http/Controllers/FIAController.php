@@ -80,6 +80,16 @@ class FIAController extends Controller
         $report->status = 2;
         $report->save();
 
-        return redirect(route('fia.driver.driver_report_overview'));
+        return redirect(route('fia.driver.report_overview'));
+    }
+
+    public function fia_report_close($id)
+    {
+        $report = Reports::find($id);
+        $report->status = 4;
+        $report->save();
+
+        notify()->success('Report Closed');
+        return redirect(route('fia.driver.report_overview'));
     }
 }
