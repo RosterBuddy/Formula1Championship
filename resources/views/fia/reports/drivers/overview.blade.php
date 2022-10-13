@@ -23,7 +23,7 @@
             @foreach ($reports as $report)
                 <tr>
                     <th scope="row">{{$report->id}}</th>
-                    <td><a href="{{route('fia.driver.driver_report_show', $report->id)}}">{{substr($report->description, 0, 50)}}...</a></td>
+                    <td><a href="{{route('fia.driver.report_show', $report->id)}}">{{substr($report->description, 0, 50)}}...</a></td>
                     <td>{{$report->reporter->name}}</td>
                     <td><span class="btn btn-{{$report->status_color()}}">{{$report->status_text()}}</span></td>
                     <td>{{$report->created_at}}</td>

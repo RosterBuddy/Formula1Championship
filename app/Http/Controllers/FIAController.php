@@ -55,20 +55,20 @@ class FIAController extends Controller
         return redirect(route('fia.report_overview'));
     }
 
-    public function driver_report_overview()
+    public function fia_report_overview()
     {
         $reports = Reports::all();
         return view('fia.reports.drivers.overview', compact('reports'));
     }
 
-    public function driver_report_show($id)
+    public function fia_report_show($id)
     {
         $report = Reports::find($id);
         $responses = ReportResponse::where('report_id', $id)->get();
         return view('fia.reports.drivers.show', compact('report', 'responses'));
     }
 
-    public function driver_report_respond($id, Request $request)
+    public function fia_report_respond($id, Request $request)
     {
         $response = ReportResponse::create([
             'report_id' => $id, 

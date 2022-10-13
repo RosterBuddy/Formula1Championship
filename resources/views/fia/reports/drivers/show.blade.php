@@ -60,7 +60,7 @@
         <h5 class="card-title">
             FIA Response
         </h5>
-        <form method="POST" action="{{route('fia.driver.driver_report_respond', $report->id)}}">
+        <form method="POST" action="{{route('fia.driver.report_respond', $report->id)}}">
         @csrf
         <div class="row mb-3">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Offical</label>
