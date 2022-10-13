@@ -90,6 +90,26 @@ class AdminController extends Controller
         return redirect(route('admin.race_results', $request->race_id));
     }
 
+    public function race_activate($id)
+    {
+        $race = Race::find($id);
+        $race->active = 1;
+        $race->save();
+
+        notify()->success('Race Activated');
+        return redirect(route('admin.race_results', $id));
+    }
+
+    public function race_complete($id)
+    {
+        $race = Race::find($id);
+        $race->active = 2;
+        $race->save();
+
+        notify()->success('Race Completed');
+        return redirect(route('admin.race_results', $id));
+    }
+
     public function drivers_overview()
     {
         $drivers = Drivers::orderBy('team', 'asc')->get();

@@ -13,7 +13,16 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Start Time</th>            
-                    <th scope="col">Active</th>
+                    <th scope="col">
+                      Status
+                      @if($race->active == 0)
+                        (<a href="{{route('admin.race_activate', $race->id)}}">Activate Race</a>)
+                      @elseif($race->active == 1)
+                        (<a href="{{route('admin.race_complete', $race->id)}}">Complete Race</a>)
+                      @elseif($race->active == 2)
+                        (<a href="{{route('admin.race_activate', $race->id)}}">Activate Race</a>)
+                      @endif
+                    </th>
                     <th scope="col">Created By</th>
                     <th scope="col">Created At</th>
                 </tr>

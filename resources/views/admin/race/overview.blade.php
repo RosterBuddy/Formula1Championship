@@ -14,7 +14,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Start Time</th>            
-                    <th scope="col">Active</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Created By</th>
                     <th scope="col">Created At</th>
                 </tr>
