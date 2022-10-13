@@ -29,14 +29,12 @@ class DashboardController extends Controller
     public function index()
     {
         $driverposition = DB::table('driver_standings')
-        ->select(DB::raw('ROW_NUMBER() OVER(ORDER BY driver_id DESC) AS Row, points'))
-        ->where('driver_id', Auth::id())
+        ->select(DB::raw('ROW_NUMBER() OVER(ORDER BY points DESC) AS Row, driver_id, points'))
         ->get();
 
 
         $teamposition = DB::table('team_standings')
-        ->select(DB::raw('ROW_NUMBER() OVER(ORDER BY team_id DESC) AS Row, points'))
-        ->where('team_id', Auth::user()->driver->teams->id)
+        ->select(DB::raw('ROW_NUMBER() OVER(ORDER BY team_id DESC) AS Row, team_id, points'))
         ->get();
         
         $avgfinish = Results::where('driver_id', Auth::user()->driver->id)->get();

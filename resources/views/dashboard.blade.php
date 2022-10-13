@@ -23,18 +23,20 @@
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title">Driver Championship Position <span></span></h5>
-
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bx bxs-medal"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P{{$driverposition[0]->Row ?? '0'}}</h6>
-                    <span class="small pt-1 fw-bold">{{$driverposition[0]->points ?? '0'}}</span> <span class="text-muted small pt-2 ps-1">points</span>
+                    @foreach($driverposition as $position)
+                      @if($position->driver_id == Auth::user()->driver->id)
+                        <h6>P{{$position->Row ?? '0'}}</h6>
+                        <span class="small pt-1 fw-bold">{{$position->points ?? '0'}}</span> <span class="text-muted small pt-2 ps-1">points</span>
+                      @endif
+                    @endforeach
                   </div>
                 </div>
               </div>
-
             </div>
           </div><!-- End Driver Position -->
 
@@ -43,14 +45,17 @@
             <div class="card info-card revenue-card">
               <div class="card-body">
                 <h5 class="card-title">Team Championship Position <span></span></h5>
-
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="ri-team-fill"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>P{{$teamposition[0]->Row ?? '0'}}</h6>
-                    <span class="small pt-1 fw-bold">{{$teamposition[0]->points ?? '0'}}</span> <span class="text-muted small pt-2 ps-1">points</span>
+                    @foreach($teamposition as $position)
+                      @if($position->team_id == Auth::user()->driver->teams->id)
+                        <h6>P{{$position->Row ?? '0'}}</h6>
+                        <span class="small pt-1 fw-bold">{{$position->points ?? '0'}}</span> <span class="text-muted small pt-2 ps-1">points</span>
+                      @endif
+                    @endforeach
                   </div>
                 </div>
               </div>
