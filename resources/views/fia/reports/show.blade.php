@@ -33,6 +33,11 @@
               <input type="text" class="form-control" id="inputText" value="{{$report->reference}}" disabled>
             </div>
         </div>
+        <div class="text-center">
+          @if ($report->status < 4)
+            <a href="{{route('fia.report_withdraw', $report->id)}}" type="submit" class="btn btn-warning">Withdraw</a>
+          @endif          
+        </div>
     </div>
   </div>
 @endsection

@@ -44,6 +44,16 @@ class FIAController extends Controller
         return view('fia.reports.show', compact('report'));
     }
 
+    public function report_withdraw($id)
+    {
+        $report = Reports::find($id);
+        $report->status = 5;
+        $report->save();
+
+        notify()->success('Report Withdrawn');
+        return redirect(route('fia.report_overview'));
+    }
+
     public function driver_report_overview()
     {
         $reports = Reports::all();
