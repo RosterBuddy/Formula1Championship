@@ -83,6 +83,7 @@ class AdminController extends Controller
             'position' => $request->position,
             'fastest_lap' => $checked,
             'points' => $points,
+            'other' => $request->non_finish,
         ]);
 
         notify()->success('Result Sucessfully Saved');

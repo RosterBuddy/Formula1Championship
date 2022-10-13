@@ -11,7 +11,7 @@ class Results extends Model
 
     protected $table = 'race_results';
 
-    protected $fillable = [ 'race_id', 'driver_id', 'team_id', 'position', 'fastest_lap', 'points' ];
+    protected $fillable = [ 'race_id', 'driver_id', 'team_id', 'position', 'fastest_lap', 'points', 'other' ];
 
     public function driver()
     {
