@@ -65,7 +65,8 @@ class FIAController extends Controller
     {
         $report = Reports::find($id);
         $responses = ReportResponse::where('report_id', $id)->get();
-        return view('fia.reports.drivers.show', compact('report', 'responses'));
+        $count = $responses->count();
+        return view('fia.reports.drivers.show', compact('report', 'responses', 'count'));
     }
 
     public function fia_report_respond($id, Request $request)

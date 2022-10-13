@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  @if($responses)
+  @if($count > 0)
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">
@@ -77,7 +77,7 @@
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-dark">Respond</button>
-          <a onclick="return confirm('Are you sure you want to close this report?')" href="#" class="btn btn-warning">Close</a>
+          <a onclick="return confirm('Are you sure you want to close this report?')" href="{{route('fia.driver.report_close', $report->id)}}" class="btn btn-warning">Close</a>
         </div>
       </form>
     </div>
