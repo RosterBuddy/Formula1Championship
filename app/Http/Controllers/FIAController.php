@@ -42,13 +42,30 @@ class FIAController extends Controller
     public function report_show($id)
     {
         $report = Reports::find($id);
-        return view('fia.reports.show', compact('report'));
+        $responses = ReportResponse::where('report_id', $id)->get();
+        $count = $responses->count();
+        return view('fia.reports.show', compact('report', 'responses', 'count'));
+    }
+
+    public function report_respond($id, Request $request)
+    {
+        $response = ReportResponse::create([
+            'report_id' => $id, 
+            'responder' => $request->fia_offical,
+            'description' => $request->description,
+        ]);
+
+        $report = Reports::find($id);
+        $report->status = 3;
+        $report->save();
+
+        return redirect(route('fia.report_overview'));
     }
 
     public function report_withdraw($id)
     {
         $report = Reports::find($id);
-        $report->status = 5;
+        $report->status = 6;
         $report->save();
 
         notify()->success('Report Withdrawn');
@@ -87,7 +104,7 @@ class FIAController extends Controller
     public function fia_report_close($id)
     {
         $report = Reports::find($id);
-        $report->status = 4;
+        $report->status = 5;
         $report->save();
 
         notify()->success('Report Closed');
