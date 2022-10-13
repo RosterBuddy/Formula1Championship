@@ -158,7 +158,7 @@
           @endrole
           @role('FIA Steward')
           <li>
-            <a href="components-tooltips.html">
+            <a href="{{route('fia.driver.driver_report_overview')}}">
               <i class="bi bi-circle"></i><span>Driver Reports</span>
             </a>
 

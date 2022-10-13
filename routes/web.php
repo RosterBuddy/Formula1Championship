@@ -55,4 +55,12 @@ Route::group([
     Route::get('report/create', [App\Http\Controllers\FIAController::class, 'report_create'])->name('report_create');
     Route::post('report/store', [App\Http\Controllers\FIAController::class, 'report_store'])->name('report_store');
     Route::get('report/show/{id}', [App\Http\Controllers\FIAController::class, 'report_show'])->name('report_show');
+    Route::group([
+        'as' => 'driver.',
+        'prefix' => 'driver',
+        'middleware' => ['auth']
+    ], function() {
+        Route::get('reports', [App\Http\Controllers\FIAController::class, 'driver_report_overview'])->name('driver_report_overview');
+        Route::get('report/show/{id}', [App\Http\Controllers\FIAController::class, 'driver_report_show'])->name('driver_report_show');
+    });
 });

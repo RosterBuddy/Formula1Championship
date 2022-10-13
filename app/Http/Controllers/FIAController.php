@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Drivers;
 use App\Models\Reports;
 use App\Models\Race;
+use Auth;
 
 class FIAController extends Controller
 {
     public function report_overview()
     {
-        $reports = Reports::all();
+        $reports = Reports::where('reporter_id', Auth::id())->get();
         return view('fia.reports.overview', compact('reports'));
     }
 
@@ -41,5 +42,17 @@ class FIAController extends Controller
     {
         $report = Reports::find($id);
         return view('fia.reports.show', compact('report'));
+    }
+
+    public function driver_report_overview()
+    {
+        $reports = Reports::all();
+        return view('fia.reports.drivers.overview', compact('reports'));
+    }
+
+    public function driver_report_show($id)
+    {
+        $report = Reports::find($id);
+        return view('fia.reports.drivers.show', compact('report'));
     }
 }
