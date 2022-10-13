@@ -55,12 +55,16 @@ Route::group([
     Route::get('report/create', [App\Http\Controllers\FIAController::class, 'report_create'])->name('report_create');
     Route::post('report/store', [App\Http\Controllers\FIAController::class, 'report_store'])->name('report_store');
     Route::get('report/show/{id}', [App\Http\Controllers\FIAController::class, 'report_show'])->name('report_show');
+    Route::post('report/{id}/respond', [App\Http\Controllers\FIAController::class, 'report_respond'])->name('report_respond');
+    Route::get('report/{id}/withdraw', [App\Http\Controllers\FIAController::class, 'report_withdraw'])->name('report_withdraw');
     Route::group([
         'as' => 'driver.',
         'prefix' => 'driver',
         'middleware' => ['auth']
     ], function() {
-        Route::get('reports', [App\Http\Controllers\FIAController::class, 'driver_report_overview'])->name('driver_report_overview');
-        Route::get('report/show/{id}', [App\Http\Controllers\FIAController::class, 'driver_report_show'])->name('driver_report_show');
+        Route::get('reports/', [App\Http\Controllers\FIAController::class, 'fia_report_overview'])->name('report_overview');        
+        Route::get('reports/show/{id}', [App\Http\Controllers\FIAController::class, 'fia_report_show'])->name('report_show');
+        Route::post('reports/{id}/respond', [App\Http\Controllers\FIAController::class, 'fia_report_respond'])->name('report_respond');
+        Route::get('reports/{id}/close', [App\Http\Controllers\FIAController::class, 'fia_report_close'])->name('report_close');
     });
 });
