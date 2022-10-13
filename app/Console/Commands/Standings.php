@@ -34,8 +34,10 @@ class standings extends Command
     public function handle()
     {
         $results = DB::table('race_results')
-        ->select('driver_id', DB::raw('sum(points) AS points'))
+        ->select('driver_id', DB::raw('SUM(points) AS points, AVG(POSITION) AS avg_pos'))
         ->groupBy('driver_id')
+        ->orderBy('points', 'DESC')
+        ->orderBy('avg_pos')
         ->get();
 
         $result = json_decode(json_encode($results), true);
@@ -49,8 +51,10 @@ class standings extends Command
         }
 
         $team_standings = DB::table('race_results')
-        ->select('team_id', DB::raw('sum(points) AS points'))
+        ->select('team_id', DB::raw('SUM(points) AS points, AVG(POSITION) AS avg_pos'))
         ->groupBy('team_id')
+        ->orderBy('points', 'DESC')
+        ->orderBy('avg_pos')
         ->get();
 
         $team_standing = json_decode(json_encode($team_standings), true);
