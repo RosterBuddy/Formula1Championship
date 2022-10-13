@@ -41,8 +41,8 @@ class Reports extends Model
     public function status_text()
     {
         switch($this->attributes['status']) {
-            case '1': return 'Open';
-            case '2': return 'Pending Review';
+            case '1': return 'Pending Review';
+            case '2': return 'Response Sent';
             case '3': return 'Open For Appeal';
             case '4': return 'Closed';
             case '5': return 'Withdrawn';
