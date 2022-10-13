@@ -109,9 +109,6 @@
                     <option value="20">P20</option>
                     <option value="21">P21</option>
                     <option value="22">P22</option>
-                    <option value="97">DNF</option>
-                    <option value="98">DNS</option>
-                    <option value="99">DQ</option>
                   </select>
                 </div>
               </div>
@@ -120,7 +117,30 @@
                 <div class="col-sm-10">
                   <input type="checkbox" class="form-check-input" name="fastest_lap" id="fastest_lap">
                 </div>
-              </div>         
+              </div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Non Finisher</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="non_finish" id="gridRadios1" value="DQed">
+                    <label class="form-check-label" for="gridRadios1">
+                      DQed
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="non_finish" id="gridRadios2" value="DNF">
+                    <label class="form-check-label" for="gridRadios2">
+                      DNF
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="non_finish" id="gridRadios" value="DNS">
+                    <label class="form-check-label" for="gridRadios3">
+                      DNS
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
               <input type="hidden" name="race_id" value="{{$race->id}}">               
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
