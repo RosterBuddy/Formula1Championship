@@ -34,7 +34,7 @@ class AdminController extends Controller
             'active' => 0,
         ]);
         notify()->success('The race ' . $request->track . ' has been saved for ' . Carbon::parse($request->start_time)->format('H:i d/m/Y'));
-        return redirect(route('admin.race_create'));
+        return redirect(route('admin.race_overview'));
     }
 
     public function race_show($id)
