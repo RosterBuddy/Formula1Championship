@@ -26,7 +26,7 @@
                     <th scope="row">{{$report->id}}</th>
                     <td><a href="{{route('fia.report_show', $report->id)}}">{{substr($report->description, 0, 50)}}...</a></td>
                     <td><span class="btn btn-{{$report->status_color()}}">{{$report->status_text()}}</span></td>
-                    <td>2022-10-12 23:00</td>
+                    <td>{{$report->created_at}}</td>
                 </tr>
               @endif
             @endforeach
